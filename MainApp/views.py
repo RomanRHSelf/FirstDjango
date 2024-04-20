@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseNotFound
+from MainApp.models import Item
 # Create your views here.
 
 items = [
@@ -49,15 +50,30 @@ def get_item(request, item_id:int):
 def get_item_template(request, item_id:int):
     for item in items:
         item_id_lockal = item["id"]
-        context = {
-            "Main_head": "tamplate for item",
-            "item_id": item_id_lockal,
-            "name": item['name'],
-            "quantity": item['quantity'],
-        }
-        return render(request=request, template_name="item.html", context=context)
+        if item["id"] == item_id:
+            context = {
+                "Main_head": "tamplate for item",
+                "item_id": item_id_lockal,
+                "name": item['name'],
+                "quantity": item['quantity'],
+            }
+            return render(request=request, template_name="item.html", context=context)
     return HttpResponseNotFound(f'Товар {item_id} не найден')
     
+def get_item_from_db(request, item_id:int):
+    items_from_db = Item.objects.all()
+    for item in items_from_db:
+        item_id_lockal = item.id
+        if item.id == item_id:
+            context = {
+                "Main_head": "tamplate for item",
+                "item_id": item_id_lockal,
+                "name": item.name,
+                "brand": item.brand,
+                "quantity": item.count,
+            }
+            return render(request=request, template_name="item_from_db.html", context=context)
+    return HttpResponseNotFound(f'Товар {item_id} не найден')
 
 def get_items(request):
     text = """<h1> Список всех товаров: </h1>
@@ -73,6 +89,14 @@ def get_items(request):
 def get_items_template(request):
     context = {
         "items_list": items,
-        "Main_head" : "все товарыЫ",
+        "Main_head" : "все товары",
     }
     return render(request=request, template_name="items.html", context=context)
+
+def get_items_list_from_db(request):
+    items_from_db = Item.objects.all()
+    context = {
+        "items_list": items_from_db,
+        "Main_head" : "все товары",
+    }
+    return render(request=request, template_name="items_list_from_db.html", context=context)

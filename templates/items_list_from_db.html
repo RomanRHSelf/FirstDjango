@@ -12,15 +12,8 @@
     <h1> Список всех товаров: </h1>
     <ul>
         {% for item in items_list %}
-            <li><a href="/item/{{item.id}}" > {{item.name}} </a> </li>
+            <li><a href="/item/{{item.id}}" > id({{item.id}}) - {{item.name}} {{item.brand}} </a> </li>
         {% endfor %}
     </ul>
 </body>
 </html>
-
-
-
-
-
-
-
