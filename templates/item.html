@@ -7,6 +7,14 @@
 </head>
 <body>
     подстановка шаблона item.html <br>
-    {{text_html}}
+    <h1>item_id = {{item_id}}</h1>
+    <h2>Наименование: {{name}} </h2>
+    {% if quantity > 0 %}
+        <p>Количество: <i>{{quantity}}</i> </p> 
+    {% else %}
+        <p>Количество: <i>товар отсутствует</i> </p> 
+    {% endif %}
+    <br>
+    <p><a href="/items"> Вернуться к полному списку товаров </a></p>
 </body>
 </html>

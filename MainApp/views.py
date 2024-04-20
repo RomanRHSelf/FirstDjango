@@ -50,19 +50,18 @@ def get_item_1(request):
     text = None
     for item in items:
         if item["id"] == 1:
-            text = f"""
-            <h1>Специально и только для item_id=1</h1>
-            <h2>Наименование: <i>{item['name']}</i> </h2>
-            <p>Количество: <i>{item['quantity']}</i> </p> <br>
-            <p><a href="/items"> Вернуться к полному списку товаров </a></p>
-            """
+            name = item['name']
+            quantity = item['quantity']
             # return HttpResponse(text)
-    context = {
-        "Main_head": "<i>Special for item 1</i>",
-        "text_html": text
-    }
-    # return HttpResponseNotFound(f'Товар id=1 не найден')
-    return render(request=request, template_name="item.html", context=context)
+            context = {
+                "Main_head": "Special for item 1",
+                "item_id": 1,
+                "name": name,
+                "quantity": quantity,
+            }
+    ?         return render(request=request, template_name="item.html", context=context)
+    return HttpResponseNotFound(f'Товар id=1 не найден')
+    
 
 def get_items(request):
     text = """<h1> Список всех товаров: </h1>
@@ -80,4 +79,4 @@ def get_items_template(request):
         "items_list": items,
         "Main_head" : "все товарыЫ",
     }
-    render(request=request, template_name="items.html", context=context)
+    return render(request=request, template_name="items.html", context=context)
