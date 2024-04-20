@@ -59,7 +59,7 @@ def get_item_1(request):
                 "name": name,
                 "quantity": quantity,
             }
-    ?         return render(request=request, template_name="item.html", context=context)
+    ?       return render(request=request, template_name="item.html", context=context)
     return HttpResponseNotFound(f'Товар id=1 не найден')
     
 
