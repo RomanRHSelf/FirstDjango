@@ -49,17 +49,16 @@ def get_item(request, item_id:int):
 def get_item_1(request):
     text = None
     for item in items:
-        if item["id"] == 1:
-            name = item['name']
-            quantity = item['quantity']
-            # return HttpResponse(text)
-            context = {
-                "Main_head": "Special for item 1",
-                "item_id": 1,
-                "name": name,
-                "quantity": quantity,
-            }
-    ?       return render(request=request, template_name="item.html", context=context)
+        name = item['name']
+        quantity = item['quantity']
+        # return HttpResponse(text)
+        context = {
+            "Main_head": "Special for item 1",
+            "item_id": item["id"],
+            "name": name,
+            "quantity": quantity,
+        }
+?       return render(request=request, template_name="item.html", context=context)
     return HttpResponseNotFound(f'Товар id=1 не найден')
     
 
