@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {% block title %}
+        Title
+        {% endblock %}
+    </title>
+    {% block style %}
+        {# Это общая css для всех страниц #}
+        <link rel="stylesheet" href="style.css">
+        {# Но каждая страница может содержать доп.уникальные css #}
+    {% endblock %}
+</head>
+<body>
+    {% include 'header.html' %}
+<main>
+    {#  Содержимое этого блока уникально на каждой странице #}
+    {% block content %}
+    {% endblock %}
+</main>
+{% include 'footer.html' %}
+</body>
+</html>

@@ -1,18 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{Main_head}}</title>
-</head>
-<body>
-    <header>
-        / <a href="/"> Начальная страница </a> / <a href="/items/"> Список товаров </a> / <a href="/about/"> О сайте </a>
-    </header>
-    подстановка шаблона item.html <br>
+{% extends 'base.html' %}
+{% block title %}
+    {{Main_head}}
+{% endblock %}
+{% block content %}
     <h1>item_id = {{item_id}}</h1>
     <h2>Наименование: {{name}} </h2>
     <h2>Бренд: {{brand}} </h2>
+    <h2>Описание: {{description}} </h2>
     {% if quantity > 0 %}
         <p>Количество: <i>{{quantity}}</i> </p> 
     {% else %}
@@ -20,5 +14,4 @@
     {% endif %}
     <br>
     <p><a href="/items"> Вернуться к полному списку товаров </a></p>
-</body>
-</html>
+{% endblock %}

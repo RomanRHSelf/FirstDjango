@@ -1,0 +1,52 @@
+[
+{
+    "model": "MainApp.item",
+    "pk": 1,
+    "fields": {
+        "name": "Кроссовки",
+        "brand": "abibas",
+        "count": 10,
+        "description": "Начальное описание товара"
+    }
+},
+{
+    "model": "MainApp.item",
+    "pk": 2,
+    "fields": {
+        "name": "кепка",
+        "brand": "грузинская",
+        "count": 124,
+        "description": "Начальное описание товара"
+    }
+},
+{
+    "model": "MainApp.item",
+    "pk": 5,
+    "fields": {
+        "name": "картофель",
+        "brand": "фри",
+        "count": 0,
+        "description": "Начальное описание товара"
+    }
+},
+{
+    "model": "MainApp.item",
+    "pk": 7,
+    "fields": {
+        "name": "Coca",
+        "brand": "cola",
+        "count": 12,
+        "description": "Начальное описание товара"
+    }
+},
+{
+    "model": "MainApp.item",
+    "pk": 8,
+    "fields": {
+        "name": "Куртка",
+        "brand": "кожанная",
+        "count": 2,
+        "description": "Начальное описание товара"
+    }
+}
+]

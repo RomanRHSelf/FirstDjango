@@ -21,8 +21,6 @@ from MainApp import views
 urlpatterns = [
     path('', views.home),
     path('about/', views.about),
-    path('item/<int:item_id>/', views.get_item_from_db),
-    #path('item/<int:item_id>/', views.get_item_template),
-    path('items/', views.get_items_list_from_db),
-    #path('items/', views.get_items_template),
+    path('item/<int:item_id>/', views.get_item),
+    path('items/', views.get_items),
 ]
