@@ -46,20 +46,17 @@ def get_item(request, item_id:int):
             return HttpResponse(text)
     return HttpResponse(f"Товар {item_id=} не найден" if text is None else text) # HttpResponseNotFound(f'Товар {item_id=} не найден')
        
-def get_item_1(request):
-    text = None
+def get_item_template(request, item_id:int):
     for item in items:
-        name = item['name']
-        quantity = item['quantity']
-        # return HttpResponse(text)
+        item_id_lockal = item["id"]
         context = {
-            "Main_head": "Special for item 1",
-            "item_id": item["id"],
-            "name": name,
-            "quantity": quantity,
+            "Main_head": "tamplate for item",
+            "item_id": item_id_lockal,
+            "name": item['name'],
+            "quantity": item['quantity'],
         }
         return render(request=request, template_name="item.html", context=context)
-    return HttpResponseNotFound(f'Товар {item["id"]} не найден')
+    return HttpResponseNotFound(f'Товар {item_id} не найден')
     
 
 def get_items(request):
