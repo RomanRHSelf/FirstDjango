@@ -7,7 +7,7 @@
     <ol>
         {% for item in items_list %}
         <div>
-        <li><a href="/item/{{item.id}}" > id({{item.id}}) - {{item.name}} {{item.brand}} </a> </li>
+        <li><a href="{% url 'item-detail' item.id %}" > id({{item.id}}): {{item.name}} / {{item.brand}} </a> </li>
         </div>
         {% endfor %}
     </ol>

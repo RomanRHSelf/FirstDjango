@@ -28,7 +28,7 @@ def home(request):
 def about(request):
     text = """
     <header>
-        / <a href="/"> Начальная страница </a> / <a href="/items/"> Список товаров </a> / <a href="/about/"> О сайте из процедуры</a>
+        / <a href="/"> Начальная страница </a> / <a href="/items/"> Список товаров </a> / <a href="/about/"> О сайте (из процедуры)</a>
     </header>
     <h1>Об авторе</h1>
     <strong>Имя</strong>: <i>Иван</i> <br>
