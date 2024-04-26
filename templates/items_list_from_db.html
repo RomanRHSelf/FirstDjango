@@ -55,7 +55,7 @@
 {% block content %}
     {% load static %}
     {% static 'skeleton.jpg' %}
-    <img src="skeleton.jpg" alt="Skeleton" />
+    <img src="{% static 'skeleton.jpg' %}" width="100" height="111" alt="Skeleton" >
     <h1> Список всех товаров: </h1>
     <br><br>
     <div class="items">
