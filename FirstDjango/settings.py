@@ -28,7 +28,7 @@ SECRET_KEY = get_random_secret_key()
 DEBUG = False #True
 
 #ALLOWED_HOSTS = []
-ALLOWED_HOSTS = ['.pythonanywhere', '127.0.0.1']
+ALLOWED_HOSTS = ['.pythonanywhere.com', '127.0.0.1']
 
 CSRF_COOKIE_SECURE = True
 
@@ -126,6 +126,7 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     BASE_DIR / "static",
     ]
+STATIC_ROOT = BASE_DIR / "staticfiles"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
