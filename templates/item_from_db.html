@@ -1,7 +1,16 @@
 {% extends 'base.html' %}
+
+{% load static %}
+
 {% block title %}
     {{Main_head}}
 {% endblock %}
+
+{% block style %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static "style.css" %}">
+{% endblock %}
+
 {% block content %}
     <h1>item_id = {{item_id}}</h1>
     <h2>Наименование: {{name}} </h2>
@@ -12,6 +21,10 @@
     {% else %}
         <p>Количество: <i>товар отсутствует</i> </p> 
     {% endif %}
+
+    {% for item in item_colors %}
+        <p> Цвет {{item.id}}: {{item.name}}</p>&nbsp;&nbsp;<div class="div_color" style='background-color: {{item.name}}';></div>
+    {% endfor %}
     <br>
     <p><a href="{% url 'items-list' %}"> Вернуться к полному списку товаров через именованный url </a></p>
 {% endblock %}

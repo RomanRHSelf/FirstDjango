@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseNotFound
-from MainApp.models import Item
+from MainApp.models import Item, Color
 from django.core.exceptions import ObjectDoesNotExist
 
 # Create your views here.
@@ -44,13 +44,15 @@ def about(request):
 def get_item(request, item_id:int):
     try:
         item_from_db = Item.objects.get(id=item_id)
+        item_clrs = item_from_db.colors.all() #Color.objects.all(id=item_id)
         context = {
             "Main_head": "template for item",
             "item_id": item_from_db.id,
             "name": item_from_db.name,
             "brand": item_from_db.brand,
             "quantity": item_from_db.count,
-            "description": item_from_db.description
+            "description": item_from_db.description,
+            "item_colors": item_clrs
         }
         return render(request=request, template_name="item_from_db.html", context=context)
     except ObjectDoesNotExist:
