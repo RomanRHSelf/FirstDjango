@@ -22,8 +22,8 @@
         <p>Количество: <i>товар отсутствует</i> </p> 
     {% endif %}
 
-    {% for item in item_colors %}
-        <p> Цвет {{item.id}}: {{item.name}}</p>&nbsp;&nbsp;<div class="div_color" style='background-color: {{item.name}}';></div>
+    {% for color in item_colors %}
+        <li> Цвет {{color.id}}: {{color.name}}&nbsp;&nbsp;<div class="div_color" style='background-color: {{color.name}}';></div></li>
     {% endfor %}
     <br>
     <p><a href="{% url 'items-list' %}"> Вернуться к полному списку товаров через именованный url </a></p>
